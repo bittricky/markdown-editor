@@ -5,3 +5,11 @@ export interface HeaderProps {
   onSave: () => void;
   toggleSidebar: () => void;
 }
+
+export interface Document {
+  id: string;
+  name: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+}
