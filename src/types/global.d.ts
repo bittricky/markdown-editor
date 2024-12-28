@@ -13,3 +13,10 @@ export interface Document {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface EditorProps {
+  content: string;
+  preview: boolean;
+  updateDocument: (content: string) => void;
+  onTogglePreview: () => void;
+}

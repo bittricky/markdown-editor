@@ -44,7 +44,7 @@ const useDocument = () => {
   );
   const [currentDocument, setCurrentDocument] = useState<Document | null>({
     id: "welcome",
-    name: "welcom.md",
+    name: "welcome.md",
     content: STARTER_CONTENT,
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),

@@ -50,4 +50,6 @@ const Header: FC<HeaderProps> = ({
   );
 };
 
+Header.displayName = "Header";
+
 export default Header;
