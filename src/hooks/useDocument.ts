@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useLocalStorage from "./useLocalStorage";
 import { Document } from "../types/global";
 
@@ -50,6 +50,15 @@ const useDocument = () => {
     updatedAt: new Date().toISOString(),
   });
 
+  // Initialize documents with welcome document if empty
+  useEffect(() => {
+    if (documents.length === 0 && currentDocument) {
+      setDocuments([currentDocument]);
+    } else if (documents.length > 0 && !currentDocument) {
+      setCurrentDocument(documents[0]);
+    }
+  }, [documents, currentDocument, setDocuments]);
+
   const updateDocument = (content: string) => {
     if (!currentDocument) return;
 
@@ -60,20 +69,48 @@ const useDocument = () => {
     };
 
     setCurrentDocument(updatedDoc);
-    setDocuments(
-      documents.map((doc: Document) =>
-        doc.id === currentDocument.id ? updatedDoc : doc
-      )
-    );
+
+    // Update the document in the documents array
+    const docExists = documents.some(doc => doc.id === currentDocument.id);
+    if (docExists) {
+      setDocuments(
+        documents.map((doc: Document) =>
+          doc.id === currentDocument.id ? updatedDoc : doc
+        )
+      );
+    } else {
+      setDocuments([...documents, updatedDoc]);
+    }
   };
 
   const saveDocument = () => {
     if (!currentDocument) return;
 
-    const updatedDocs = documents.map((doc: Document) =>
-      doc.id === currentDocument.id ? currentDocument : doc
-    );
+    // Check if document already exists in the array
+    const docExists = documents.some(doc => doc.id === currentDocument.id);
+    
+    if (docExists) {
+      // Update existing document
+      setDocuments(
+        documents.map((doc: Document) =>
+          doc.id === currentDocument.id ? currentDocument : doc
+        )
+      );
+    } else {
+      // Add new document to the array
+      setDocuments([...documents, currentDocument]);
+    }
+  };
+
+  const deleteDocument = (id: string) => {
+    // Filter out the document with the given id
+    const updatedDocs = documents.filter(doc => doc.id !== id);
     setDocuments(updatedDocs);
+    
+    // If the current document is being deleted, set the current document to the first one in the list or null
+    if (currentDocument && currentDocument.id === id) {
+      setCurrentDocument(updatedDocs.length > 0 ? updatedDocs[0] : null);
+    }
   };
 
   return {
@@ -82,6 +119,7 @@ const useDocument = () => {
     setCurrentDocument,
     updateDocument,
     saveDocument,
+    deleteDocument
   };
 };
 

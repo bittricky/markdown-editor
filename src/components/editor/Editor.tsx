@@ -1,8 +1,6 @@
 import { FC } from "react";
 
-import EditorHeader from "./EditorHeader";
-import MarkdownInput from "./MarkdownInput";
-import MarkdownPreview from "./MarkdownPreview";
+import { EditorHeader, MarkdownInput, MarkdownPreview } from "../";
 
 import { EditorComponentProps } from "../../types/global";
 

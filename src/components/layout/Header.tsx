@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Save } from "lucide-react";
 import { HeaderProps } from "../../types/global";
 
-const CoreHeader: FC<HeaderProps> = ({ document, onSave }) => {
+const CoreHeader: FC<HeaderProps> = ({ currentDocument, onSave }) => {
   return (
     <header className="bg-[#2c2f31] h-14 flex items-center px-4 text-white">
       <div className="flex items-center space-x-4 flex-1">
@@ -10,7 +10,7 @@ const CoreHeader: FC<HeaderProps> = ({ document, onSave }) => {
         <div className="h-6 w-[1px] bg-gray-600" />
         <div className="text-sm">
           <p className="text-gray-400 text-xs">Document Name</p>
-          <p className="text-gray-200">{document?.name || "welcome.md"}</p>
+          <p className="text-gray-200">{currentDocument?.name || "welcome.md"}</p>
         </div>
       </div>
       <button
