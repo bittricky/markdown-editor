@@ -20,3 +20,8 @@ export interface EditorProps {
   updateDocument: (content: string) => void;
   onTogglePreview: () => void;
 }
+
+export interface HeaderProps {
+  document: Document | null;
+  onSave: () => void;
+}

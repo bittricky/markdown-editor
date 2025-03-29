@@ -1,6 +1,7 @@
 import { FC } from "react";
 import DOMPurify from "dompurify";
 import { marked } from "marked";
+import { EditorProps } from "../types/global";
 
 const Editor: FC<EditorProps> = ({ content, updateDocument, preview }) => {
   const sanitizedHtml = DOMPurify.sanitize(marked(content));
