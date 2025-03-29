@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Save } from "lucide-react";
 import { HeaderProps } from "../../types/global";
 
-const Header: FC<HeaderProps> = ({ document, onSave }) => {
+const CoreHeader: FC<HeaderProps> = ({ document, onSave }) => {
   return (
     <header className="bg-[#2c2f31] h-14 flex items-center px-4 text-white">
       <div className="flex items-center space-x-4 flex-1">
@@ -24,6 +24,6 @@ const Header: FC<HeaderProps> = ({ document, onSave }) => {
   );
 };
 
-Header.displayName = "Header";
+CoreHeader.displayName = "CoreHeader";
 
-export default Header;
+export default CoreHeader;

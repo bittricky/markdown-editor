@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { Header } from "./components";
+import useDocument from "./hooks/useDocument";
+import { Header, Editor } from "./components";
 
 function App() {
   const [preview, setPreview] = useState<boolean>(false);
