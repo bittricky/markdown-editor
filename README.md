@@ -4,8 +4,6 @@
 
 A modern, responsive markdown editor application built with React, TypeScript, and Vite. This application allows users to create, edit, and preview markdown documents with a clean, intuitive interface.
 
-![Markdown Editor Screenshot](screenshot.png)
-
 ## Features
 
 - **Document Management**: Create, read, update, and delete markdown documents
