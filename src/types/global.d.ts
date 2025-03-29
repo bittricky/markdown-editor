@@ -21,6 +21,29 @@ export interface EditorProps {
   onTogglePreview: () => void;
 }
 
+export interface EditorComponentProps {
+  content: string;
+  onChange: (content: string) => void;
+  preview: boolean;
+  onTogglePreview: () => void;
+}
+
+export interface EditorHeaderProps {
+  title: string;
+  showPreviewToggle?: boolean;
+  isPreview?: boolean;
+  onTogglePreview?: () => void;
+}
+
+export interface MarkdownPreviewProps {
+  content: string;
+}
+
+export interface MarkdownInputProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+
 export interface HeaderProps {
   document: Document | null;
   onSave: () => void;
