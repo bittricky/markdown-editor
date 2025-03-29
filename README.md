@@ -35,7 +35,7 @@ A modern, responsive markdown editor application built with React, TypeScript, a
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/markdown-editor.git
+   git clone https://github.com/bittricky/markdown-editor.git
    cd markdown-editor
    ```
 
