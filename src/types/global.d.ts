@@ -44,7 +44,13 @@ export interface MarkdownInputProps {
   onChange: (value: string) => void;
 }
 
-export interface HeaderProps {
-  document: Document | null;
-  onSave: () => void;
+// This interface is already defined above
+
+export interface SidebarProps {
+  documents: Document[];
+  currentDocument: Document | null;
+  onNewDocument: () => void;
+  onSelectDocument: (doc: Document) => void;
+  onDeleteDocument: (id: string) => void;
+  isOpen: boolean;
 }
