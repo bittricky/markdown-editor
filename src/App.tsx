@@ -47,14 +47,15 @@ function App() {
   };
 
   return (
-    <div className="h-screen flex flex-col bg-[#151619]">
-      <Header 
-        darkMode={darkMode}
-        toggleDarkMode={() => setDarkMode(!darkMode)}
-        currentDocument={currentDocument} 
-        onSave={saveDocument} 
-        toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
-      />
+    <div className={`h-screen flex flex-col ${darkMode ? 'dark' : ''}`}>
+      <div className="h-full bg-white dark:bg-[#151619] text-gray-800 dark:text-gray-200">
+        <Header 
+          darkMode={darkMode}
+          toggleDarkMode={() => setDarkMode(!darkMode)}
+          currentDocument={currentDocument} 
+          onSave={saveDocument} 
+          toggleSidebar={() => setSidebarOpen(!sidebarOpen)}
+        />
       <Sidebar 
         documents={documents}
         currentDocument={currentDocument}
@@ -73,6 +74,7 @@ function App() {
           />
         )}
       </main>
+      </div>
     </div>
   );
 }

@@ -15,10 +15,10 @@ const Sidebar: FC<SidebarProps> = ({
     <aside
       className={`${
         isOpen ? "translate-x-0" : "-translate-x-full"
-      } fixed top-14 bottom-0 left-0 w-64 bg-[#1d1f22] transform transition-transform duration-200 ease-in-out z-10 flex flex-col`}
+      } fixed top-14 bottom-0 left-0 w-64 bg-gray-100 dark:bg-[#1d1f22] transform transition-transform duration-200 ease-in-out z-10 flex flex-col`}
     >
       <div className="p-6 flex flex-col">
-        <h2 className="uppercase text-gray-400 font-medium tracking-widest text-sm mb-6">My Documents</h2>
+        <h2 className="uppercase text-gray-500 dark:text-gray-400 font-medium tracking-widest text-sm mb-6">My Documents</h2>
         <button
           onClick={onNewDocument}
           className="w-full px-4 py-3 bg-[#e46643] hover:bg-[#f39765] transition-colors text-white rounded-md flex items-center justify-center space-x-2"
@@ -37,14 +37,14 @@ const Sidebar: FC<SidebarProps> = ({
                 className={`flex items-center justify-between cursor-pointer group ${
                   currentDocument?.id === doc.id
                     ? "text-[#e46643]"
-                    : "text-gray-300 hover:text-white"
+                    : "text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white"
                 }`}
                 onClick={() => onSelectDocument(doc)}
               >
                 <div className="flex items-center space-x-3">
                   <File className="w-4 h-4" />
                   <div className="flex flex-col">
-                    <span className="text-xs text-gray-500">{new Date(doc.createdAt).toLocaleDateString()}</span>
+                    <span className="text-xs text-gray-500 dark:text-gray-500">{new Date(doc.createdAt).toLocaleDateString()}</span>
                     <span className="font-medium">
                       {doc.name}
                     </span>
@@ -64,7 +64,7 @@ const Sidebar: FC<SidebarProps> = ({
             ))}
           </div>
         ) : (
-          <div className="px-6 text-center text-gray-500">
+          <div className="px-6 text-center text-gray-500 dark:text-gray-500">
             <p>No documents yet</p>
             <p className="text-sm mt-2">Click "New Document" to create one</p>
           </div>
