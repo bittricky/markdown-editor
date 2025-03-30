@@ -1,6 +1,6 @@
 # Markdown Editor
 
-> Whatever happened to just getting it all out on the document?
+> Whatever happened to just writing it all out on the document?
 
 A modern, responsive markdown editor application built with React, TypeScript, and Vite. This application allows users to create, edit, and preview markdown documents with a clean, intuitive interface.
 
